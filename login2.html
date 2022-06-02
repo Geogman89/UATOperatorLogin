@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--George Thompson-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control Operator Login</title>
+</head>
+<body style = "background-color: blue;">
+    <div style="text-align:center; color: white;">
+    <H1><B>Mission Control Operator Login</B></H1>
+
+    <p>Please enter your First Name: </p>
+    <input id="fName"> <br>  <!--Asks user to input first name to the id fName-->
+
+    <p>Please enter your Last Name: </p>
+    <input id="lName"> <br>  <!--Asks the user to input last name to the id lName-->
+
+    <p>Please enter your Badge Number: </p>
+    <input id="BadgeNumber"><br>  <!--Asks the user to input badge number to id BadgeNumber-->
+
+    <button type="button" onclick="validation()">Submit</button> <!--Creates button that runs validation function when clicked-->
+
+    <p id="demo"></p> <br></br> <!--Outputs the id demo-->
+
+    <p id="demo2"></p> <!--Outputs the id demo2-->
+   
+    
+    </div>
+    
+
+    <script>
+
+    /*
+     George Thompson
+     6/1/22
+     Assignment: Mission Control Operator Login
+    */ 
+
+     function validation() {
+
+        var fname = document.getElementById("fName").value; // creates a variable fname from what the user inputs as id fName 
+        var lname = document.getElementById("lName").value; // creates a variable lname from what the user inputs as id lName
+        var name = fname + " " + lname; // creates the variable name from combining fname and lname with a space in between 
+        var badgenumber = document.getElementById("BadgeNumber").value; // creates a variable badgenumber from what the user inputs as BadgeNumber
+
+        
+        if (name.length <=0 || name.length >= 22) // sets an if condition that if the length of the name vaiable is less than 1 or over 21
+        {         // it will alert the user and not continue (i set it to 22 to compensate for the space between first and last name)
+            window.alert("Name must be between 1 and 20 characters.");
+            name.focus();
+            return false;
+        }
+
+        if (badgenumber.length <= 0 || badgenumber.length >= 4) // sets an if condition that if the length of the badge number is less than 1 or more than 3
+        {         // it will alert the user and not continue            
+            window.alert("Badge Number must be between 1 and 3 characters.");
+            badgenumber.focus();
+            return false;       
+        }
+        
+           // if everything passes validation these post the name and badge number to the html document
+           document.getElementById("demo").innerHTML = "Your Name: " + name;
+           document.getElementById("demo2").innerHTML = "Your Badge Number: " + badgenumber;
+           
+       
+     }
+     
+     
+
+     /*
+     This is how I first completed assignment but decided to try and improve my code
+     George Thompson
+     6/1/22
+     Assignment: Mission Control Operator Login
+     
+    var operatorName = prompt("Please enter your First and Last Name.");
+    var badgeNumber = prompt("Please enter your Badge Number.");
+
+
+    while (operatorName.length <= 0 || operatorName.length >= 20) {
+
+           operatorName = prompt("Your Name must be between 1 and 20 characters.")
+        
+    }
+
+
+   while (badgeNumber.length <= 0 || badgeNumber.length >= 4) {
+
+          badgeNumber = prompt("Your Badge Number must be between 1 and 3 characters.")
+
+   }
+
+   document.write("Your Name: " + operatorName);
+   document.write("<br></br>");
+   document.write("Your Badge Number: " + badgeNumber);
+
+*/
+
+
+    </script>
+</body>
+</html>
